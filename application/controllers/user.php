@@ -43,7 +43,6 @@ class User extends CI_Controller {
                     $this->_data['loginError'] = 'Username and Password not matched';
                 }
             }
-            
         }
          $this->_data['loginError'] = '';
         $this->load->view('login.php', $this->_data);
@@ -56,8 +55,7 @@ class User extends CI_Controller {
     public function profile() {
        if($this->session->userdata('isLoggedIn')==false){
            redirect('user/auth');
-       }
-       else{
+       } else{
             $ret=  $this->session->userdata('userinfo');
             $this->load->model('Usermodel','u');
             $user=$this->u->getUserByUserId($ret['id']);
